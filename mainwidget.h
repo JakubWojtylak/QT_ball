@@ -28,11 +28,21 @@ class MainWidget : public QOpenGLWidget, protected QOpenGLFunctions
     Q_OBJECT
 
 public:
+    /*!
+     * \brief state - zmienna odpowiadająca za zatrzymanie aplikacji
+     */
         bool state;
+        /*!
+         * \brief reset - zmienna odpowiadająca za reset aplikacji
+         */
+        bool reset;
     explicit MainWidget(QWidget *parent = 0);
     ~MainWidget();
 
 protected:
+        void mousePressEvent(QMouseEvent *e) override;
+        void mouseReleaseEvent(QMouseEvent *e) override;
+        void timerEvent(QTimerEvent *e) override;
 
 
     void initializeGL() override;
@@ -46,20 +56,51 @@ private:
     QBasicTimer timer;
     QOpenGLShaderProgram program;
     GeometryEngine *geometries;
-
+    /*!
+     * \brief obiekt tekstur
+     */
     QOpenGLTexture *texture;
-    float predkoscX;
-    float predkoscY;
+    /*!
+     * \brief prędkość kulki wzdłuż osi X
+     */
+    float vX=0;
+    /*!
+     * \brief prędkość kulki wzdłuż osi y
+     */
+    float vY=0;
+    /*!
+     * \brief prędkość kulki wzdłuż osi y
+     */
+    float vZ=0;
+    /*!
+     * \brief Macierz widoku kamery
+     */
     QMatrix4x4 projection;
+    /*!
+     * \brief Macierz rotacji płytki
+     */
     QMatrix4x4 rotacja;
+    /*!
+     * \brief Macierz przesunięca kulki
+     */
+public:
+
     QMatrix4x4 przesun;
+
     QVector2D mousePressPosition;
+    /*!
+     * \brief wektor obrotu kamery
+     */
     QVector3D rotationAxis;
+    /*!
+     * \brief prędkość obrotu kamery
+     */
     qreal angularSpeed;
     QQuaternion rotation;
 
+
 public slots:
-    void okres();
+
     void abc(int x,int y);
 };
 

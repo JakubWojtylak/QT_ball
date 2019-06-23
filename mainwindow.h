@@ -29,8 +29,20 @@ private slots:
      * \brief readserial połaczony jest z sygnałem read, który po wywołaniu wykonuje metodę slot
      */
     void readserial();
+    /*!
+     * \brief handlePlay obługa przycisku PLay
+     */
     void handlePlay();
-    void handleStop();
+    /*!
+     * \brief handleStop obługa przycisku Stop
+     */ void handleStop();
+    /*!
+     * \brief handleReset obługa przycisku PLay
+     */
+    void handleReset();
+    /*!
+     * \brief przekazanie wartości do wykresu
+     */
     void xyz(int x, int y);
 };
 

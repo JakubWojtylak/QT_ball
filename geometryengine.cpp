@@ -143,6 +143,8 @@ void GeometryEngine::drawCubeGeometry(QOpenGLShaderProgram *program)
     // Set modelview-projection matrix
     program->setUniformValue("mvp_matrix", przesun);
 
+  // qDebug()<<"kulka";
+
     // Tell OpenGL programmable pipeline how to locate vertex position data
      vertexLocation = program->attributeLocation("a_position");
     program->enableAttributeArray(vertexLocation);

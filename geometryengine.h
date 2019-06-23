@@ -46,6 +46,7 @@ private:
     QOpenGLBuffer indexBuf;
     QMatrix4x4 przesun;
 
+
 };
 
 #endif // GEOMETRYENGINE_H

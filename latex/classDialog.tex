@@ -1,0 +1,140 @@
+\hypertarget{classDialog}{}\section{Dialog Class Reference}
+\label{classDialog}\index{Dialog@{Dialog}}
+
+
+The \hyperlink{classDialog}{Dialog} class klasa zawierająca metody przesyłania danych z mikrokontrolera do aplikacji.  
+
+
+
+
+{\ttfamily \#include $<$dialog.\+h$>$}
+
+
+
+Inheritance diagram for Dialog\+:
+% FIG 0
+
+
+Collaboration diagram for Dialog\+:
+% FIG 1
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDialog_ad766f1df658ea06808d040a19878f4f9}\label{classDialog_ad766f1df658ea06808d040a19878f4f9}} 
+void \hyperlink{classDialog_ad766f1df658ea06808d040a19878f4f9}{read} ()
+\begin{DoxyCompactList}\small\item\em sygnał generowany przez dialog przy odberaniu nowych danych sygnał generowany przez dialog przy odberaniu nowych danych \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDialog_aaea69985a8152a31d08a17473e5bbabf}\label{classDialog_aaea69985a8152a31d08a17473e5bbabf}} 
+void {\bfseries odczytano} (int, int)
+\item 
+\mbox{\Hypertarget{classDialog_a4218d224610ffc2b8d46958ab6d595e9}\label{classDialog_a4218d224610ffc2b8d46958ab6d595e9}} 
+void {\bfseries disco} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDialog_acfa2063f9f962d394c6a645b6e7e08d8}\label{classDialog_acfa2063f9f962d394c6a645b6e7e08d8}} 
+{\bfseries Dialog} (Q\+Widget $\ast$parent=0)
+\item 
+void \hyperlink{classDialog_a9dad20f00c0ea2dbf0b8a725a5fb8a55}{read\+Serial} (Ui\+::\+Main\+Window $\ast$)
+\begin{DoxyCompactList}\small\item\em pobiera dane z portu szeregowego pobiera dane z portu szeregowego \end{DoxyCompactList}\item 
+void \hyperlink{classDialog_a193d23a252d0fdae0fbf7bafe26b5436}{update\+AxisX} (Q\+String, Ui\+::\+Main\+Window $\ast$)
+\begin{DoxyCompactList}\small\item\em Pokazanie wartości na osi X. \end{DoxyCompactList}\item 
+void \hyperlink{classDialog_a80b79327f63cc80a253c3c728101fba8}{update\+AxisY} (Q\+String, Ui\+::\+Main\+Window $\ast$)
+\begin{DoxyCompactList}\small\item\em Pokazanie wartości na osi Y. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDialog_aaa1f9474d6bb0ba9f96a8ea2ca5f64b3}\label{classDialog_aaa1f9474d6bb0ba9f96a8ea2ca5f64b3}} 
+double {\bfseries get\+AxisX} ()
+\item 
+\mbox{\Hypertarget{classDialog_a3fd1de19ccf0164ed8932c413b9fd7aa}\label{classDialog_a3fd1de19ccf0164ed8932c413b9fd7aa}} 
+double {\bfseries get\+AxisY} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDialog_aa0b8b6a5f69da0c051262423f2754401}\label{classDialog_aa0b8b6a5f69da0c051262423f2754401}} 
+double \hyperlink{classDialog_aa0b8b6a5f69da0c051262423f2754401}{x\+\_\+\+Axis}
+\begin{DoxyCompactList}\small\item\em x\+\_\+\+Axis -\/ zmienna przechowująca obrót wokół osi X \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDialog_a344f5d1343d5a34aaea52545c7c5220c}\label{classDialog_a344f5d1343d5a34aaea52545c7c5220c}} 
+double \hyperlink{classDialog_a344f5d1343d5a34aaea52545c7c5220c}{y\+\_\+\+Axis}
+\begin{DoxyCompactList}\small\item\em y\+\_\+\+Axis zmienna przechowująca obrót wokół osi Y \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDialog_a7a5a966705f13033597b6e40b4bc66a1}\label{classDialog_a7a5a966705f13033597b6e40b4bc66a1}} 
+Q\+Serial\+Port $\ast$ \hyperlink{classDialog_a7a5a966705f13033597b6e40b4bc66a1}{discovery}
+\begin{DoxyCompactList}\small\item\em wskaźnik na port C\+OM \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDialog_a2f4d0b4d440bbc32668af9886220ddc7}\label{classDialog_a2f4d0b4d440bbc32668af9886220ddc7}} 
+Q\+Byte\+Array \hyperlink{classDialog_a2f4d0b4d440bbc32668af9886220ddc7}{serial\+Data}
+\begin{DoxyCompactList}\small\item\em zmienna przechowująca dane pobrane z portu szeregowego \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDialog_ac1227694c4e6d36bd406360dae0cb7bc}\label{classDialog_ac1227694c4e6d36bd406360dae0cb7bc}} 
+Q\+String \hyperlink{classDialog_ac1227694c4e6d36bd406360dae0cb7bc}{serial\+Buffer}
+\begin{DoxyCompactList}\small\item\em tablica przechowująca podzielone dane \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDialog_aff6a46c0884ecc1e95fd9c7375aec514}\label{classDialog_aff6a46c0884ecc1e95fd9c7375aec514}} 
+static const quint16 \hyperlink{classDialog_aff6a46c0884ecc1e95fd9c7375aec514}{discovery\+\_\+vendor\+\_\+id} = 1155
+\begin{DoxyCompactList}\small\item\em ID urządzenia. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDialog_a97e001dff4a03fc6e4d63a5a0fa7b8f1}\label{classDialog_a97e001dff4a03fc6e4d63a5a0fa7b8f1}} 
+static const quint16 \hyperlink{classDialog_a97e001dff4a03fc6e4d63a5a0fa7b8f1}{discovery\+\_\+product\+\_\+id} = 14155
+\begin{DoxyCompactList}\small\item\em ID produktu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classDialog}{Dialog} class klasa zawierająca metody przesyłania danych z mikrokontrolera do aplikacji. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classDialog_a9dad20f00c0ea2dbf0b8a725a5fb8a55}\label{classDialog_a9dad20f00c0ea2dbf0b8a725a5fb8a55}} 
+\index{Dialog@{Dialog}!read\+Serial@{read\+Serial}}
+\index{read\+Serial@{read\+Serial}!Dialog@{Dialog}}
+\subsubsection{\texorpdfstring{read\+Serial()}{readSerial()}}
+{\footnotesize\ttfamily void Dialog\+::read\+Serial (\begin{DoxyParamCaption}\item[{Ui\+::\+Main\+Window $\ast$}]{ui }\end{DoxyParamCaption})}
+
+
+
+pobiera dane z portu szeregowego pobiera dane z portu szeregowego 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ui} & -\/ przekazanie wskaźnika na interfejs użytkownika pozwalający zmieniać wartość na nim \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDialog_a193d23a252d0fdae0fbf7bafe26b5436}\label{classDialog_a193d23a252d0fdae0fbf7bafe26b5436}} 
+\index{Dialog@{Dialog}!update\+AxisX@{update\+AxisX}}
+\index{update\+AxisX@{update\+AxisX}!Dialog@{Dialog}}
+\subsubsection{\texorpdfstring{update\+Axis\+X()}{updateAxisX()}}
+{\footnotesize\ttfamily void Dialog\+::update\+AxisX (\begin{DoxyParamCaption}\item[{Q\+String}]{sensor\+\_\+reading,  }\item[{Ui\+::\+Main\+Window $\ast$}]{ui }\end{DoxyParamCaption})}
+
+
+
+Pokazanie wartości na osi X. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Ui} & -\/ przekazanie wskaźnika na interfejs użytkownika pozwalający zmieniać wartość na \\
+\hline
+\mbox{\tt in}  & {\em Q\+String} & -\/ przekazanie wartości na osi w postaci stringa \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDialog_a80b79327f63cc80a253c3c728101fba8}\label{classDialog_a80b79327f63cc80a253c3c728101fba8}} 
+\index{Dialog@{Dialog}!update\+AxisY@{update\+AxisY}}
+\index{update\+AxisY@{update\+AxisY}!Dialog@{Dialog}}
+\subsubsection{\texorpdfstring{update\+Axis\+Y()}{updateAxisY()}}
+{\footnotesize\ttfamily void Dialog\+::update\+AxisY (\begin{DoxyParamCaption}\item[{Q\+String}]{sensor\+\_\+reading,  }\item[{Ui\+::\+Main\+Window $\ast$}]{ui }\end{DoxyParamCaption})}
+
+
+
+Pokazanie wartości na osi Y. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em Ui} & -\/ przekazanie wskaźnika na interfejs użytkownika pozwalający zmieniać wartość na \\
+\hline
+\mbox{\tt in}  & {\em Q\+String} & -\/ przekazanie wartości na osi w postaci stringa \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{dialog_8h}{dialog.\+h}\item 
+dialog.\+cpp\end{DoxyCompactItemize}

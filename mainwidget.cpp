@@ -9,15 +9,13 @@
 MainWidget::MainWidget(QWidget *parent) :
     QOpenGLWidget(parent),
     geometries(0),
-    texture(nullptr),
-    angularSpeed(0)
+    texture(nullptr)
+
 
 
 
 {
-QTimer czas;
-connect(&czas, SIGNAL(timeout()),this,SLOT(okres()));
-czas.start(20);
+
 }
 
 
@@ -31,40 +29,88 @@ MainWidget::~MainWidget()
     delete geometries;
     doneCurrent();
 }
-
-void MainWidget::okres(){
-
+void MainWidget::mousePressEvent(QMouseEvent *e)
+{
+    // Save mouse press position
+    mousePressPosition = QVector2D(e->localPos());
 
 
 }
 
+void MainWidget::mouseReleaseEvent(QMouseEvent *e)
+{
+    // Mouse release position - mouse press position
+    QVector2D diff = QVector2D(e->localPos()) - mousePressPosition;
+
+    // Rotation axis is perpendicular to the mouse position difference
+    // vector
+    QVector3D n = QVector3D(diff.y(), diff.x(), 0.0).normalized();
+
+    // Accelerate angular speed relative to the length of the mouse sweep
+    qreal acc = diff.length() / 100.0;
+
+    // Calculate new rotation axis as weighted sum
+    rotationAxis = -(rotationAxis * angularSpeed + n * acc).normalized();
+
+    // Increase angular speed
+    angularSpeed += acc;
+}
+void MainWidget::timerEvent(QTimerEvent *)
+{
+    // Decrease angular speed (friction)
+    angularSpeed *= 0.90;
+
+    // Stop rotation when speed goes below threshold
+    if (angularSpeed < 0.01) {
+        angularSpeed = 0.0;
+    } else {
+        // Update rotation
+        rotation = QQuaternion::fromAxisAndAngle(rotationAxis, angularSpeed) * rotation;
+
+        // Request an update
+        update();
+    }
+}
 
 void MainWidget::abc(int x, int y){
 
     //qDebug()<<x<<endl;
     //qDebug()<<y<<endl;
-
+//reset=true;
     rotacja.setToIdentity();
     rotacja.rotate(y/100,QVector3D(1,0,0));
     rotacja.rotate(x/100,QVector3D(0,0,1));
      rotacja.scale(40.0,2.0,10.0);
+     if(reset == true){
     przesun.setToIdentity();
     przesun.scale(3,3,3);
-    przesun.translate(0,2,0);
-if(y>0){
-    if(y<500)przesun.translate(QVector3D(-x/100,y/1000,-y/200));
-  else przesun.translate(QVector3D(-x/100,y/1000,y/200));
+    przesun.translate(0,1.5,0);
+    reset = false;
+    vX=0;
+    vY=0;
+    vZ=0;
 }
-else if(y<=0)przesun.translate(QVector3D(-x/100,y/1000,y/200));
+     if(state == true){
+vX+=x/200;
+vY+=y/50;
+vZ=(vX/2000);
+//if(x>1300 || x<-1300 || y>1000 || y<-1000) {vX=0; vY=0; vZ=0;}
+if(vZ>0)
+przesun.translate(-vX/100,-vZ,vY/2000);
+else if(vZ<=0){
+przesun.translate(-vX/100, vZ,vY/2000);
+}
 
 // scale for ball
  geometries->ruch(przesun);
-
- qDebug()<<state;
+    }
+ //qDebug()<<state;
  if(state == true){
  update();
- qDebug()<<"updating";
+ qDebug()<<"boki "<<vX<<"przod: "<<vZ<<"góra: "<<vY;
  }
+
+
 }
 
 
@@ -155,20 +201,34 @@ void MainWidget::paintGL()
 
 
     // Calculate model view transformation
-    //QMatrix4x4 matrix;
-    //matrix.translate(0.0, 0.0, 0.0);
-    //matrix.rotate(rotation);
+    QMatrix4x4 matrix;
+    matrix.translate(0.0, 0.0, 0.0);
+    matrix.rotate(rotation);
    // matrix.rotate(M_PI/6,QVector3D(0,1,0));
    //matrix.scale(40.0,4.0,25);// scale for plate
+//    QMatrix4x4 matrix;
+//    matrix.rotate(rotation);
+
+
+
+    // Set modelview-projection matrix
+
 
    QMatrix4x4 camera;
   camera.lookAt(QVector3D(0.0,0.3,-0.3),QVector3D(0.0,0.0,0.0),QVector3D(0.0,0.0,1.0));
     // Set modelview-projection matrix
  QMatrix4x4 projection;
  projection.ortho(-50,50,-50,50,-50,50);
+ rotacja.setToIdentity();
+rotacja.scale(40.0,2.0,10.0);
 
+przesun.setToIdentity();
+przesun.scale(3,3,3);
+przesun.translate(0,1.5,0);
+ geometries->ruch(przesun);
  program.setUniformValue("mvp_projection", projection);
   program.setUniformValue("camera", camera);
+    program.setUniformValue("mvp_matrix2", matrix);
 program.setUniformValue("mvp_matrix", rotacja);
 
 
@@ -177,6 +237,6 @@ program.setUniformValue("mvp_matrix", rotacja);
     // Use texture unit 0 which contains cube.png
     program.setUniformValue("texture", 0);
 
-    // Draw cube geometry
+
     geometries->drawCubeGeometry(&program);
 }

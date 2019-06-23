@@ -1,0 +1,100 @@
+\hypertarget{classMainWidget}{}\section{Main\+Widget Class Reference}
+\label{classMainWidget}\index{Main\+Widget@{Main\+Widget}}
+
+
+The \hyperlink{classMainWidget}{Main\+Widget} class.  
+
+
+
+
+{\ttfamily \#include $<$mainwidget.\+h$>$}
+
+
+
+Inheritance diagram for Main\+Widget\+:
+% FIG 0
+
+
+Collaboration diagram for Main\+Widget\+:
+% FIG 1
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMainWidget_ae3f3317b794e8d75702c8dd351abd216}\label{classMainWidget_ae3f3317b794e8d75702c8dd351abd216}} 
+void {\bfseries abc} (int x, int y)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMainWidget_a326fee5088b7cebaa102ed5332dd59ee}\label{classMainWidget_a326fee5088b7cebaa102ed5332dd59ee}} 
+{\bfseries Main\+Widget} (Q\+Widget $\ast$parent=0)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMainWidget_aad9c9c0b73a768fe201df0cef3c186b7}\label{classMainWidget_aad9c9c0b73a768fe201df0cef3c186b7}} 
+bool \hyperlink{classMainWidget_aad9c9c0b73a768fe201df0cef3c186b7}{state}
+\begin{DoxyCompactList}\small\item\em state -\/ zmienna odpowiadająca za zatrzymanie aplikacji \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMainWidget_a8320222b0090e6cd5550825cdab4c8aa}\label{classMainWidget_a8320222b0090e6cd5550825cdab4c8aa}} 
+bool \hyperlink{classMainWidget_a8320222b0090e6cd5550825cdab4c8aa}{reset}
+\begin{DoxyCompactList}\small\item\em reset -\/ zmienna odpowiadająca za reset aplikacji \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMainWidget_a6df60adf8e9c01f15a967932cb746c54}\label{classMainWidget_a6df60adf8e9c01f15a967932cb746c54}} 
+Q\+Matrix4x4 \hyperlink{classMainWidget_a6df60adf8e9c01f15a967932cb746c54}{przesun}
+\begin{DoxyCompactList}\small\item\em Macierz przesunięca kulki. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMainWidget_a165d742c4d8f6f65458b04ac8b9ea1db}\label{classMainWidget_a165d742c4d8f6f65458b04ac8b9ea1db}} 
+void {\bfseries initialize\+GL} () override
+\item 
+\mbox{\Hypertarget{classMainWidget_a2a1c57a221291985658820568a8bd5c0}\label{classMainWidget_a2a1c57a221291985658820568a8bd5c0}} 
+void {\bfseries resize\+GL} (int w, int h) override
+\item 
+\mbox{\Hypertarget{classMainWidget_afbf87f376e972633a553a86c55e37e2e}\label{classMainWidget_afbf87f376e972633a553a86c55e37e2e}} 
+void {\bfseries paint\+GL} () override
+\item 
+\mbox{\Hypertarget{classMainWidget_a3d8d55c802fd4b4dabeef5bd9592c697}\label{classMainWidget_a3d8d55c802fd4b4dabeef5bd9592c697}} 
+void {\bfseries init\+Shaders} ()
+\item 
+\mbox{\Hypertarget{classMainWidget_a45e5b0ff42304bfe4d0500bc4cff79d4}\label{classMainWidget_a45e5b0ff42304bfe4d0500bc4cff79d4}} 
+void {\bfseries init\+Textures} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMainWidget_ad374794388dcffd3e8717ad0db47f49b}\label{classMainWidget_ad374794388dcffd3e8717ad0db47f49b}} 
+Q\+Basic\+Timer {\bfseries timer}
+\item 
+\mbox{\Hypertarget{classMainWidget_a3c27f255c09a836aa755e6047b68c339}\label{classMainWidget_a3c27f255c09a836aa755e6047b68c339}} 
+Q\+Open\+G\+L\+Shader\+Program {\bfseries program}
+\item 
+\mbox{\Hypertarget{classMainWidget_aee734e7e5ac07e82fe4d497dac5b0ac1}\label{classMainWidget_aee734e7e5ac07e82fe4d497dac5b0ac1}} 
+\hyperlink{classGeometryEngine}{Geometry\+Engine} $\ast$ {\bfseries geometries}
+\item 
+\mbox{\Hypertarget{classMainWidget_acc21b7eeeca01d94b5cd6d7ec079cfe0}\label{classMainWidget_acc21b7eeeca01d94b5cd6d7ec079cfe0}} 
+Q\+Open\+G\+L\+Texture $\ast$ \hyperlink{classMainWidget_acc21b7eeeca01d94b5cd6d7ec079cfe0}{texture}
+\begin{DoxyCompactList}\small\item\em obiekt tekstur \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMainWidget_a91986f4cd0a536889c4697eb81fb82c1}\label{classMainWidget_a91986f4cd0a536889c4697eb81fb82c1}} 
+float \hyperlink{classMainWidget_a91986f4cd0a536889c4697eb81fb82c1}{vX} =0
+\begin{DoxyCompactList}\small\item\em prędkość kulki wzdłuż osi X \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMainWidget_abfd21f44f83f520d2b020a36e73d88c1}\label{classMainWidget_abfd21f44f83f520d2b020a36e73d88c1}} 
+float \hyperlink{classMainWidget_abfd21f44f83f520d2b020a36e73d88c1}{vY} =0
+\begin{DoxyCompactList}\small\item\em prędkość kulki wzdłuż osi y \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMainWidget_ac832d7564e43ed2d6e2a03c651a7bf27}\label{classMainWidget_ac832d7564e43ed2d6e2a03c651a7bf27}} 
+float \hyperlink{classMainWidget_ac832d7564e43ed2d6e2a03c651a7bf27}{vZ} =0
+\begin{DoxyCompactList}\small\item\em prędkość kulki wzdłuż osi y \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMainWidget_ab024c87ad22e1a41ec1d33dbf011fa0a}\label{classMainWidget_ab024c87ad22e1a41ec1d33dbf011fa0a}} 
+Q\+Matrix4x4 \hyperlink{classMainWidget_ab024c87ad22e1a41ec1d33dbf011fa0a}{projection}
+\begin{DoxyCompactList}\small\item\em Macierz widoku kamery. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMainWidget_aa834d062e80c28cd23f66d3f01a688f4}\label{classMainWidget_aa834d062e80c28cd23f66d3f01a688f4}} 
+Q\+Matrix4x4 \hyperlink{classMainWidget_aa834d062e80c28cd23f66d3f01a688f4}{rotacja}
+\begin{DoxyCompactList}\small\item\em Macierz rotacji płytki. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classMainWidget}{Main\+Widget} class. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+mainwidget.\+h\item 
+mainwidget.\+cpp\end{DoxyCompactItemize}

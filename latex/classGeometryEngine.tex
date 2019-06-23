@@ -1,0 +1,75 @@
+\hypertarget{classGeometryEngine}{}\section{Geometry\+Engine Class Reference}
+\label{classGeometryEngine}\index{Geometry\+Engine@{Geometry\+Engine}}
+
+
+Klasa generowanej płytki i kuli.  
+
+
+
+
+{\ttfamily \#include $<$geometryengine.\+h$>$}
+
+
+
+Inheritance diagram for Geometry\+Engine\+:
+% FIG 0
+
+
+Collaboration diagram for Geometry\+Engine\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classGeometryEngine_a9668fa4c753c20e6a7aae1244213296f}{draw\+Cube\+Geometry} (Q\+Open\+G\+L\+Shader\+Program $\ast$program)
+\begin{DoxyCompactList}\small\item\em draw\+Cube\+Geometry -\/ powoduje wyrysowanie obiektu na scenie 3D \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryEngine_a8a04669549b6d23f6826d5175d5c555a}\label{classGeometryEngine_a8a04669549b6d23f6826d5175d5c555a}} 
+void {\bfseries ruch} (Q\+Matrix4x4 a)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGeometryEngine_ae96763d291025a22af677aab09cc6878}\label{classGeometryEngine_ae96763d291025a22af677aab09cc6878}} 
+void \hyperlink{classGeometryEngine_ae96763d291025a22af677aab09cc6878}{init\+Cube\+Geometry} ()
+\begin{DoxyCompactList}\small\item\em init\+Cube\+Geometry -\/ stworzenie obiektów grafiki 3D \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGeometryEngine_abcaed53af230d0e7284d40823910a305}\label{classGeometryEngine_abcaed53af230d0e7284d40823910a305}} 
+Q\+Open\+G\+L\+Buffer \hyperlink{classGeometryEngine_abcaed53af230d0e7284d40823910a305}{array}
+\begin{DoxyCompactList}\small\item\em array -\/ bufor przechowujący punkty kuli \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryEngine_aab5b7d0e18e2244e36e6496b5d554d90}\label{classGeometryEngine_aab5b7d0e18e2244e36e6496b5d554d90}} 
+Q\+Open\+G\+L\+Buffer \hyperlink{classGeometryEngine_aab5b7d0e18e2244e36e6496b5d554d90}{array\+Buf}
+\begin{DoxyCompactList}\small\item\em array\+Buf -\/ bufor przechowujący punkty płytki \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryEngine_a83ff4486fd616b77012462add496234c}\label{classGeometryEngine_a83ff4486fd616b77012462add496234c}} 
+Q\+Open\+G\+L\+Buffer \hyperlink{classGeometryEngine_a83ff4486fd616b77012462add496234c}{index\+Buf}
+\begin{DoxyCompactList}\small\item\em index\+Buf -\/ bufor określający kolejność rysowania punktów \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGeometryEngine_ae851274c37ac51d381d67fc93ecec6c0}\label{classGeometryEngine_ae851274c37ac51d381d67fc93ecec6c0}} 
+Q\+Matrix4x4 {\bfseries przesun}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Klasa generowanej płytki i kuli. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classGeometryEngine_a9668fa4c753c20e6a7aae1244213296f}\label{classGeometryEngine_a9668fa4c753c20e6a7aae1244213296f}} 
+\index{Geometry\+Engine@{Geometry\+Engine}!draw\+Cube\+Geometry@{draw\+Cube\+Geometry}}
+\index{draw\+Cube\+Geometry@{draw\+Cube\+Geometry}!Geometry\+Engine@{Geometry\+Engine}}
+\subsubsection{\texorpdfstring{draw\+Cube\+Geometry()}{drawCubeGeometry()}}
+{\footnotesize\ttfamily void Geometry\+Engine\+::draw\+Cube\+Geometry (\begin{DoxyParamCaption}\item[{Q\+Open\+G\+L\+Shader\+Program $\ast$}]{program }\end{DoxyParamCaption})}
+
+
+
+draw\+Cube\+Geometry -\/ powoduje wyrysowanie obiektu na scenie 3D 
+
+
+\begin{DoxyParams}{Parameters}
+{\em program} & -\/ wskaźnik na shader, z którym ma się połaczyć aplikacja \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{geometryengine_8h}{geometryengine.\+h}\item 
+geometryengine.\+cpp\end{DoxyCompactItemize}

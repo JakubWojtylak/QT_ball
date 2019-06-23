@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
 
-bool state=0;
+
     dialog = new Dialog(this);
     ui->setupUi(this);
     ui->osX_lcdnumber->display("-----");
@@ -23,11 +23,12 @@ bool state=0;
    QObject::connect(dialog, SIGNAL(read()), this, SLOT(readserial()));
   QObject::connect(dialog,SIGNAL(odczytano(int,int)),ui->openGLWidget, SLOT(abc(int , int )));
    QObject::connect(dialog,SIGNAL(odczytano(int,int)),this, SLOT(xyz(int , int )));
-// ui->openGLWidget->abc(3,5);
+
 ui->label->setText("połączono");
 ui->openGLWidget->state=0;
 QObject::connect(ui->play,SIGNAL(pressed()),this, SLOT(handlePlay()));
 QObject::connect(ui->stop,SIGNAL(pressed()),this, SLOT(handleStop()));
+QObject::connect(ui->reset,SIGNAL(pressed()),this, SLOT(handleReset()));
 
 
 QSharedPointer<QCPAxisTickerTime> timeTicker(new QCPAxisTickerTime);
@@ -91,4 +92,9 @@ void MainWindow::handleStop()
     qDebug()<<"Zatrzymywanie aplikacji";
 
 }
+void MainWindow::handleReset(){
 
+    qDebug()<<"zresetowano"<<endl;
+    ui->openGLWidget->reset=true;
+
+}
